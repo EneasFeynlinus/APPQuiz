@@ -32,16 +32,7 @@ const showFinalScore = () => {
     popup.style.display = 'block'
 }
 
-quizForm.addEventListener('submit', event => {
-    event.preventDefault()
-
-
-    const userAnswers = getUserAnswer()
-
-    calculateUserScore(userAnswers)
-
-    showFinalScore()
-
+const animateFinalScore = () => {
     let counter = 0
 
     const timer = setInterval(() => {
@@ -51,6 +42,18 @@ quizForm.addEventListener('submit', event => {
 
         popup.querySelector('span').textContent = `${counter++}`
     }, 15)
+}
+
+quizForm.addEventListener('submit', event => {
+    event.preventDefault()
+
+    const userAnswers = getUserAnswer()
+
+    calculateUserScore(userAnswers)
+
+    showFinalScore()
+
+    animateFinalScore()
 })
 
 popup.addEventListener('click', event => {
