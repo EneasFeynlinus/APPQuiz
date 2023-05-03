@@ -5,18 +5,20 @@ const correctAnswers = ['D', 'C', 'C', 'B']
 let score = 0
 
 const getUserAnswer = () => {
-    const userAnswers = [
-        quizForm.inputQuestion1.value,
-        quizForm.inputQuestion2.value,
-        quizForm.inputQuestion3.value,
-        quizForm.inputQuestion4.value,
-    ]
+    let userAnswers = []
+
+    correctAnswers.forEach((_, index) => {
+        const userAnswer = quizForm[`inputQuestion${index + 1}`].value
+        userAnswers.push(userAnswer)
+    })
+
     return userAnswers
 }
 
 const calculateUserScore = (userAnswers) => {
     userAnswers.forEach((userAnswer, index) => {
-        if (userAnswer === correctAnswers[index]) {
+        const isUserAnswerCorrect = userAnswer === correctAnswers[index]
+        if (isUserAnswerCorrect) {
             score += 25
         }
     })
@@ -50,9 +52,7 @@ quizForm.addEventListener('submit', event => {
     const userAnswers = getUserAnswer()
 
     calculateUserScore(userAnswers)
-
     showFinalScore()
-
     animateFinalScore()
 })
 
