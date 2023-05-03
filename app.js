@@ -38,3 +38,15 @@ quizForm.addEventListener('submit', event => {
         popup.querySelector('span').textContent = `${counter++}`
     }, 15)
 })
+
+popup.addEventListener('click', event => {
+    const classOfClickedElement = event.target.classList[0]
+    const classList = ['restart-button', 'popup-wrapper', 'popup-close']
+    const shouldPopupBeClosed = classList.some(item => item === classOfClickedElement)
+
+    if (shouldPopupBeClosed) {
+        popup.style.display = 'none'
+        score = 0
+    }
+    quizForm.reset()
+})
