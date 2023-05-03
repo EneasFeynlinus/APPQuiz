@@ -22,6 +22,16 @@ const calculateUserScore = (userAnswers) => {
     })
 }
 
+const showFinalScore = () => {
+    scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+
+    popup.style.display = 'block'
+}
+
 quizForm.addEventListener('submit', event => {
     event.preventDefault()
 
@@ -30,13 +40,7 @@ quizForm.addEventListener('submit', event => {
 
     calculateUserScore(userAnswers)
 
-    scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-    })
-
-    popup.style.display = 'block'
+    showFinalScore()
 
     let counter = 0
 
