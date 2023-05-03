@@ -2,23 +2,33 @@ const quizForm = document.querySelector('.quiz-form')
 const popup = document.querySelector('.popup-wrapper')
 const correctAnswers = ['D', 'C', 'C', 'B']
 
-quizForm.addEventListener('submit', event => {
-    event.preventDefault()
+let score = 0
 
-    let score = 0
-
+const getUserAnswer = () => {
     const userAnswers = [
         quizForm.inputQuestion1.value,
         quizForm.inputQuestion2.value,
         quizForm.inputQuestion3.value,
         quizForm.inputQuestion4.value,
     ]
+    return userAnswers
+}
 
+const calculateUserScore = (userAnswers) => {
     userAnswers.forEach((userAnswer, index) => {
         if (userAnswer === correctAnswers[index]) {
             score += 25
         }
     })
+}
+
+quizForm.addEventListener('submit', event => {
+    event.preventDefault()
+
+
+    const userAnswers = getUserAnswer()
+
+    calculateUserScore(userAnswers)
 
     scrollTo({
         top: 0,
