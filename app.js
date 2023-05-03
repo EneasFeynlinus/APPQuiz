@@ -13,5 +13,11 @@ quizForm.addEventListener('submit', event => {
         quizForm.inputQuestion4.value,
     ]
 
-    console.log(userAnswers)
+    userAnswers.forEach((userAnswer, index) => {
+        if (userAnswer === correctAnswers[index]) {
+            score += 25
+        }
+    })
+
+    console.log(score)
 })
