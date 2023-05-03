@@ -1,4 +1,5 @@
 const quizForm = document.querySelector('.quiz-form')
+const popup = document.querySelector('.popup-wrapper')
 const correctAnswers = ['D', 'C', 'C', 'B']
 
 quizForm.addEventListener('submit', event => {
@@ -24,6 +25,16 @@ quizForm.addEventListener('submit', event => {
         left: 0,
         behavior: 'smooth'
     })
-    
-    console.log(score)
+
+    popup.style.display = 'block'
+
+    let counter = 0
+
+    const timer = setInterval(() => {
+        if (counter === score) {
+            clearInterval(timer)
+        }
+
+        popup.querySelector('span').textContent = `${counter++}`
+    }, 15)
 })
