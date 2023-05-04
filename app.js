@@ -24,12 +24,33 @@ const calculateUserScore = (userAnswers) => {
     })
 }
 
+const checkScoreInsertText = (text) => {
+    popup.querySelector('h2').textContent = text
+}
+
 const showFinalScore = () => {
     scrollTo({
         top: 0,
         left: 0,
         behavior: 'smooth'
     })
+
+    switch (score) {
+        case 0:
+            checkScoreInsertText('You have missed them all.')
+            break
+        case 25:
+            checkScoreInsertText('You have got one right!')
+            break
+        case 50:
+            checkScoreInsertText('You have got two right!')
+            break
+        case 75:
+            checkScoreInsertText('You have got three right!')
+            break
+        default:
+            checkScoreInsertText('You have got all answers right!')
+    }
 
     popup.style.display = 'block'
 }
