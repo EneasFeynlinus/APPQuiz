@@ -19,8 +19,13 @@
     max-width: 300px;
     margin: 20% auto;
     padding: 20px;
-    background: white;
+    background-image: url(images/processor-300.jpg);
+    /* background: white; */
     position: relative;
+}
+
+.popup-content {
+    color: rgb(255, 238, 0);
 }
 
 .restart-button {
@@ -38,4 +43,21 @@
     padding: 1px 5px 1px 5px;
     background: crimson;
     color: white;
+}
+
+.quizImage {
+    background-image: linear-gradient(black, purple, blue);
+}
+
+.myBackground {
+    background-image: url(images/ciberCessor.jpg);
+}
+
+.outerBack {
+    background-image: url(images/violetSpace.jpg);
+    background-size: cover;
+}
+
+.boarderHolder {
+    background-image: radial-gradient(blue, purple, black);
 }
